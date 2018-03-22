@@ -12,7 +12,8 @@ __all__ = (
     'AudioOutput',
     'AudioInput',
     'AudioSample',
-    'AudioException')
+    'AudioException',
+    'initSDL')
 
 DEF SDL_INIT_AUDIO = 0x10
 DEF MIX_CHANNELS_MAX = 32
@@ -111,9 +112,9 @@ cdef class AudioSample:
 cdef class AudioOutput:
     ''':class:`AudioOutput` class is the base for initializing the internal
     audio.
-    
+
     .. warning::
-    
+
         You can instanciate only one AudioOutput in a process. It must be
         instanciated before any others components of the library.
     '''
@@ -260,3 +261,6 @@ def get_input_sources():
 
 def get_output(**kwargs):
     return AudioOutput(**kwargs)
+
+def initSDL():
+    SDL_SetMainReady()

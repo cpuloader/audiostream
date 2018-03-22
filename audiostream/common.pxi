@@ -63,6 +63,7 @@ cdef extern from "SDL.h" nogil:
     int SDL_Init(int)
     void SDL_LockAudio()
     void SDL_UnlockAudio()
+    void SDL_SetMainReady()
 
 cdef extern from "SDL_mixer.h" nogil:
     struct Mix_Chunk:
@@ -84,5 +85,3 @@ cdef extern from "SDL_mixer.h" nogil:
     void Mix_FreeChunk(Mix_Chunk *chunk)
     int Mix_QuerySpec(int *frequency,uint16_t *format,int *channels)
     int Mix_Volume(int chan, int volume)
-
-
